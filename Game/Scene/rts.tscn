@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cymb3lhhhhem4"]
+
+[ext_resource type="Script" uid="uid://bambgho5oppsj" path="res://Script/hud.gd" id="1_42rvx"]
+[ext_resource type="Script" uid="uid://7gdgp8xlkx7d" path="res://Script/camera.gd" id="1_x3ox0"]
+[ext_resource type="Script" uid="uid://qc48yirmksxo" path="res://Script/player.gd" id="3_6540j"]
+[ext_resource type="Texture2D" uid="uid://cwptrwgl255nw" path="res://icon.svg" id="3_mcrj6"]
+
+[node name="RTS" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("3_6540j")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_mcrj6")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(620, 324)
+texture = ExtResource("3_mcrj6")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(774, -235)
+texture = ExtResource("3_mcrj6")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(1239, 120)
+texture = ExtResource("3_mcrj6")
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("1_x3ox0")
+
+[node name="HUD" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_42rvx")
+
+[node name="ColorRect" type="ColorRect" parent="Camera/HUD"]
+layout_mode = 0
+offset_left = -600.0
+offset_top = 280.0
+offset_right = 600.0
+offset_bottom = 360.0
