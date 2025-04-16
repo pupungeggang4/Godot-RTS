@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cymb3lhhhhem4"]
+[gd_scene load_steps=8 format=3 uid="uid://cymb3lhhhhem4"]
 
+[ext_resource type="Script" uid="uid://dy01g2mcocjkn" path="res://Script/rts.gd" id="1_6bmd1"]
 [ext_resource type="Script" uid="uid://bambgho5oppsj" path="res://Script/hud.gd" id="1_42rvx"]
 [ext_resource type="Script" uid="uid://7gdgp8xlkx7d" path="res://Script/camera.gd" id="1_x3ox0"]
 [ext_resource type="Script" uid="uid://qc48yirmksxo" path="res://Script/player.gd" id="3_6540j"]
@@ -8,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://deb2hc3r28sn4" path="res://Image/ButtonMenu.png" id="6_ae5vg"]
 
 [node name="RTS" type="Node2D"]
+script = ExtResource("1_6bmd1")
+
+[node name="Field" type="Node2D" parent="."]
+
+[node name="Unit" type="Node2D" parent="Field"]
+
+[node name="Projectile" type="Node2D" parent="Field"]
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("3_6540j")
