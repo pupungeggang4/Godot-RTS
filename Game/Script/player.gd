@@ -6,14 +6,26 @@ extends Node2D
 @export var speed = 200.0
 @export var hp = 60
 
+@export var camera_follow = false
+
 func _process(delta: float) -> void:
     move_player(delta)
-    adjust_camera()
+    adjust_camera(delta)
     handle_input()
     
-func adjust_camera() -> void:
-    node_camera.position.x = position.x
-    node_camera.position.y = position.y
+func adjust_camera(delta: float) -> void:
+    if camera_follow == true:
+        node_camera.position.x = position.x
+        node_camera.position.y = position.y
+    else:
+        if Input.is_action_pressed('up'):
+            node_camera.position.y -= 400.0 * delta
+        if Input.is_action_pressed('down'):
+            node_camera.position.y += 400.0 * delta
+        if Input.is_action_pressed('left'):
+            node_camera.position.x -= 400.0 * delta
+        if Input.is_action_pressed('right'):
+            node_camera.position.x += 400.0 * delta
     
 func move_player(delta: float) -> void:
     var diff = node_pointer.position - position

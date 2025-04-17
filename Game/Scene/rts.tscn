@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cymb3lhhhhem4"]
+[gd_scene load_steps=12 format=3 uid="uid://cymb3lhhhhem4"]
 
 [ext_resource type="Script" uid="uid://dy01g2mcocjkn" path="res://Script/rts.gd" id="1_6bmd1"]
 [ext_resource type="Script" uid="uid://bambgho5oppsj" path="res://Script/hud.gd" id="1_42rvx"]
 [ext_resource type="Script" uid="uid://7gdgp8xlkx7d" path="res://Script/camera.gd" id="1_x3ox0"]
+[ext_resource type="PackedScene" uid="uid://wm1fgm8rsrvn" path="res://Scene/Thing/unit.tscn" id="2_8yyvq"]
 [ext_resource type="Script" uid="uid://qc48yirmksxo" path="res://Script/player.gd" id="3_6540j"]
 [ext_resource type="Texture2D" uid="uid://jjg5ky2ile3c" path="res://Image/Pointer.png" id="3_ae5vg"]
 [ext_resource type="Texture2D" uid="uid://cwptrwgl255nw" path="res://icon.svg" id="3_mcrj6"]
@@ -19,6 +20,12 @@ script = ExtResource("1_6bmd1")
 [node name="Field" type="Node2D" parent="."]
 
 [node name="Unit" type="Node2D" parent="Field"]
+
+[node name="Unit1" parent="Field/Unit" instance=ExtResource("2_8yyvq")]
+position = Vector2(200, 0)
+
+[node name="Unit2" parent="Field/Unit" instance=ExtResource("2_8yyvq")]
+position = Vector2(400, 0)
 
 [node name="Projectile" type="Node2D" parent="Field"]
 

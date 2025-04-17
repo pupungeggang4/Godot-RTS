@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wm1fgm8rsrvn"]
+[gd_scene load_steps=4 format=3 uid="uid://wm1fgm8rsrvn"]
 
 [ext_resource type="Script" uid="uid://dr27i000q2aot" path="res://Script/unit.gd" id="1_iqq80"]
+[ext_resource type="Texture2D" uid="uid://c8yjnvdktmbqk" path="res://Image/Unit/Unit001.png" id="2_i8xqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqq80"]
 size = Vector2(80, 80)
@@ -9,6 +10,7 @@ size = Vector2(80, 80)
 script = ExtResource("1_iqq80")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_i8xqt")
 
 [node name="Area2D" type="Area2D" parent="."]
 
