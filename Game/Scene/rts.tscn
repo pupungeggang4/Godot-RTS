@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cymb3lhhhhem4"]
+[gd_scene load_steps=11 format=3 uid="uid://cymb3lhhhhem4"]
 
 [ext_resource type="Script" uid="uid://dy01g2mcocjkn" path="res://Script/rts.gd" id="1_6bmd1"]
 [ext_resource type="Script" uid="uid://bambgho5oppsj" path="res://Script/hud.gd" id="1_42rvx"]
@@ -6,7 +6,12 @@
 [ext_resource type="Script" uid="uid://qc48yirmksxo" path="res://Script/player.gd" id="3_6540j"]
 [ext_resource type="Texture2D" uid="uid://jjg5ky2ile3c" path="res://Image/Pointer.png" id="3_ae5vg"]
 [ext_resource type="Texture2D" uid="uid://cwptrwgl255nw" path="res://icon.svg" id="3_mcrj6"]
+[ext_resource type="PackedScene" uid="uid://bmhi7p207khck" path="res://Scene/Thing/projectile.tscn" id="4_uqh2j"]
 [ext_resource type="Texture2D" uid="uid://deb2hc3r28sn4" path="res://Image/ButtonMenu.png" id="6_ae5vg"]
+[ext_resource type="Theme" uid="uid://ymbot84easli" path="res://Resource/font_neodgm.tres" id="6_ixt08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bmd1"]
+size = Vector2(80, 80)
 
 [node name="RTS" type="Node2D"]
 script = ExtResource("1_6bmd1")
@@ -23,6 +28,11 @@ script = ExtResource("3_6540j")
 [node name="Sprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("3_mcrj6")
 
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("RectangleShape2D_6bmd1")
+
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("1_x3ox0")
 
@@ -32,6 +42,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_42rvx")
+
+[node name="TextHP" type="Label" parent="Camera/HUD"]
+layout_mode = 0
+offset_left = -600.0
+offset_top = -360.0
+offset_right = -520.0
+offset_bottom = -328.0
+theme = ExtResource("6_ixt08")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "60/60"
 
 [node name="ColorRect" type="ColorRect" parent="Camera/HUD"]
 layout_mode = 0
@@ -46,3 +66,6 @@ texture = ExtResource("6_ae5vg")
 
 [node name="Pointer" type="Sprite2D" parent="."]
 texture = ExtResource("3_ae5vg")
+
+[node name="Projectile" parent="." instance=ExtResource("4_uqh2j")]
+position = Vector2(245, 104)
